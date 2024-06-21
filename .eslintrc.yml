@@ -5,31 +5,33 @@ env:
 
 globals:
   Atomics: readonly
+  NodeRequire: readonly
   SharedArrayBuffer: readonly
 
 ignorePatterns:
-  - '!.*'
-  - '**/node_modules/.*'
-  - '**/dist/.*'
-  - '**/coverage/.*'
-  - '*.json'
+  - .github
+  - .vscode
+  - coverage
+  - dist
+  - node_modules
+  - reports
 
 parser: '@typescript-eslint/parser'
 
 parserOptions:
   ecmaVersion: 2023
+  project: tsconfig.eslint.json
   sourceType: module
-  project:
-    - './.github/linters/tsconfig.json'
-    - './tsconfig.json'
+  tsconfigRootDir: .
 
 settings:
   import/resolver:
     typescript:
       alwaysTryTypes: true
-      project: './.github/linters/tsconfig.json'
+      project: tsconfig.eslint.json
 
 plugins:
+  - import
   - jest
   - '@typescript-eslint'
 
