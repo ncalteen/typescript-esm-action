@@ -2,15 +2,15 @@ import * as core from '@actions/core'
 import type { User } from '@octokit/graphql-schema'
 import { Octokit } from '@octokit/rest'
 import { wait } from './wait.js'
+
 /**
- * The main function for the action.
- * @returns {Promise<void>} Resolves when the action is complete.
+ * The main function for the action
  */
 export async function run(): Promise<void> {
   try {
     const ms: string = core.getInput('milliseconds')
 
-    // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
+    // Debug logs are only output if the `ACTIONS_STEP_DEBUG` env var is true
     core.debug(`Waiting ${ms} milliseconds ...`)
 
     // Log the current timestamp, wait, then log the new timestamp
