@@ -16,6 +16,7 @@ const jestConfig: JestConfigWithTsJest = {
     '^.+\\.tsx?$': [
       'ts-jest',
       {
+        tsconfig: 'tsconfig.eslint.json',
         useESM: true
       }
     ]
